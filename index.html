@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://api.counterapi.dev">
+    <link rel="dns-prefetch" href="https://api.counterapi.dev">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0b0f">
+    <meta name="description" content="Free percentage calculator — calculate percentages, percentage change, increase/decrease, and more. What is X% of Y? X is what percent of Y? Instant, accurate, no download.">
+    <meta name="keywords" content="percentage calculator, percent calculator, percentage change, percentage increase, percentage decrease, what is X percent of Y, percent of, percent increase calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jimmywithfiona.com/percentage-calculator/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1840337371416691" crossorigin="anonymous"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Percentage Calculator">
+    <meta property="og:title" content="Percentage Calculator — Calculate Percentages, Change & Increase">
+    <meta property="og:description" content="Free percentage calculator. What is X% of Y? Percentage change, increase, decrease. Instant and accurate.">
+    <meta property="og:url" content="https://jimmywithfiona.com/percentage-calculator/">
+    <meta property="og:image" content="https://jimmywithfiona.com/percentage-calculator/favicon.svg">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Percentage Calculator — Percent of, Change, Increase">
+    <meta name="twitter:description" content="Calculate percentages, percentage change, increase and decrease instantly.">
+    <meta name="twitter:image" content="https://jimmywithfiona.com/percentage-calculator/favicon.svg">
+    <title>Percentage Calculator — Percent of, Change & Increase | Free</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator","url":"https://jimmywithfiona.com/percentage-calculator/","description":"Free online percentage calculator. Calculate percent of a number, percentage change, increase, and decrease.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"How do I calculate percentage?","acceptedAnswer":{"@type":"Answer","text":"To calculate a percentage, divide the part by the whole and multiply by 100. For example, if you scored 45 out of 60, the percentage is (45 / 60) × 100 = 75%."}},
+        {"@type":"Question","name":"How do I calculate what percent X is of Y?","acceptedAnswer":{"@type":"Answer","text":"Divide X by Y and multiply by 100. For example, 25 is what percent of 200? (25 / 200) × 100 = 12.5%."}},
+        {"@type":"Question","name":"How do I calculate percentage increase?","acceptedAnswer":{"@type":"Answer","text":"Percentage increase = ((new value - original value) / original value) × 100. If a price goes from $80 to $100, the increase is ((100-80)/80) × 100 = 25%."}},
+        {"@type":"Question","name":"How do I calculate percentage decrease?","acceptedAnswer":{"@type":"Answer","text":"Percentage decrease = ((original value - new value) / original value) × 100. If a price drops from $100 to $80, the decrease is ((100-80)/100) × 100 = 20%."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jimmywithfiona.com/"},{"@type":"ListItem","position":2,"name":"Percentage Calculator","item":"https://jimmywithfiona.com/percentage-calculator/"}]}
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="/percentage-calculator/">% Percentage Calculator</a>
+    <div class="nav-links">
+        <a href="/percentage-calculator/" class="active">Calculator</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="/">🏠 Home</a>
+    </div>
+</nav>
+<main>
+    <h1>Percentage Calculator</h1>
+    <p class="subtitle">Calculate percentages, percentage change, increase, and decrease — instant and accurate.</p>
+
+    <div class="mode-btns">
+        <button class="mode-btn active" onclick="setMode('of',this)">What is X% of Y?</button>
+        <button class="mode-btn" onclick="setMode('isWhat',this)">X is what % of Y?</button>
+        <button class="mode-btn" onclick="setMode('change',this)">% Change</button>
+        <button class="mode-btn" onclick="setMode('increase',this)">% Increase</button>
+        <button class="mode-btn" onclick="setMode('decrease',this)">% Decrease</button>
+    </div>
+
+    <div class="tool-card">
+        <div class="calc-question" id="question">What is <strong>X%</strong> of <strong>Y</strong>?</div>
+        <div class="input-line" id="inputLine"></div>
+        <div class="btn-row">
+            <button class="btn" onclick="calculate()">Calculate</button>
+            <button class="btn btn-secondary" onclick="clearResult()">Clear</button>
+        </div>
+    </div>
+
+    <div class="result-box" id="resultBox">
+        <div class="result-value" id="resultValue">—</div>
+        <div class="result-formula" id="resultFormula"></div>
+    </div>
+
+    <div class="steps-box" id="stepsBox">
+        <div class="label">Step-by-step</div>
+        <ol id="stepsList"></ol>
+    </div>
+
+    <div class="stats-footer">👁️ Views <strong id="pv">-</strong><span class="stat-divider">|</span>👤 Visitors <strong id="uv">-</strong></div>
+
+    <div class="seo-section">
+        <h2>Free Online Percentage Calculator</h2>
+        <p>Our free percentage calculator helps you solve any percentage problem instantly. Whether you need to find what percent a number is of another, calculate percentage change, or figure out a discount, our tool gives you the answer with step-by-step explanations.</p>
+        <h2>Percentage Formulas</h2>
+        <ul>
+            <li><strong>What is X% of Y?</strong> — Multiply Y by X/100. Example: 20% of 150 = 150 × 0.20 = 30.</li>
+            <li><strong>X is what % of Y?</strong> — Divide X by Y, multiply by 100. Example: 30 is what % of 150? (30/150) × 100 = 20%.</li>
+            <li><strong>Percentage change</strong> — ((new − old) / old) × 100. Positive = increase, negative = decrease.</li>
+            <li><strong>Percentage increase</strong> — ((new − old) / old) × 100. Example: 80→100 = ((100−80)/80) × 100 = 25%.</li>
+            <li><strong>Percentage decrease</strong> — ((old − new) / old) × 100. Example: 100→80 = ((100−80)/100) × 100 = 20%.</li>
+        </ul>
+        <h2>Common Percentage Uses</h2>
+        <ul>
+            <li><strong>Discounts & sales</strong> — Calculate sale prices, like 30% off a $50 item</li>
+            <li><strong>Tips</strong> — Figure out 15% or 18% tip on a restaurant bill</li>
+            <li><strong>Taxes</strong> — Add sales tax or VAT to a price</li>
+            <li><strong>Grades</strong> — Calculate test scores as percentages</li>
+            <li><strong>Finance</strong> — Interest rates, investment returns, profit margins</li>
+            <li><strong>Statistics</strong> — Compare data, growth rates, market share</li>
+        </ul>
+        <h2>How to Calculate Percentage Quickly</h2>
+        <p>To calculate a percentage mentally, a useful trick is to find 10% first (move the decimal point one place left), then multiply. For example, to find 15% of $40: 10% is $4, half of that (5%) is $2, so 15% = $4 + $2 = $6. Our calculator does this instantly for any numbers — no mental math required.</p>
+        <h2>FAQ</h2>
+        <p><strong>What is a percentage?</strong> — A percentage is a number expressed as a fraction of 100. The symbol "%" means "per hundred." So 50% = 50/100 = 0.5.</p>
+        <p><strong>How is percentage different from a fraction?</strong> — A percentage is just a fraction with denominator 100. 25% = 25/100 = 1/4.</p>
+        <p><strong>Can percentages be over 100%?</strong> — Yes. 200% means twice the original amount. This is common in growth calculations.</p>
+        <p><strong>Is this percentage calculator free?</strong> — Yes, completely free. No signup, no download, no limits.</p>
+    </div>
+</main>
+<footer>
+    <p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="/">Home</a></p>
+    <p style="margin-top:0.4rem;">Percentage Calculator © 2026 · Free online percentage calculator</p>
+    <div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;">More: <a href="/age-calculator/">Age Calculator</a> · <a href="/word-counter/">Word Counter</a> · <a href="/typing-test/">Typing Test</a> · <a href="/bmi-calculator/">BMI Calculator</a> · <a href="/quick-tools/">QuickTools</a></div>
+</footer>
+<script src="js/counter.js" defer></script>
+<script>
+let mode = "of";
+
+const MODES = {
+    of: {
+        question: 'What is <strong>X%</strong> of <strong>Y</strong>?',
+        inputs: [{id:"a",label:"X",unit:"%",placeholder:"20"},{id:"b",label:"Y",unit:"",placeholder:"150"}],
+    },
+    isWhat: {
+        question: '<strong>X</strong> is what % of <strong>Y</strong>?',
+        inputs: [{id:"a",label:"X",unit:"",placeholder:"30"},{id:"b",label:"Y",unit:"",placeholder:"150"}],
+    },
+    change: {
+        question: '% change from <strong>X</strong> to <strong>Y</strong>',
+        inputs: [{id:"a",label:"From",unit:"",placeholder:"80"},{id:"b",label:"To",unit:"",placeholder:"100"}],
+    },
+    increase: {
+        question: 'Increase <strong>X</strong> by <strong>Y%</strong>',
+        inputs: [{id:"a",label:"Value",unit:"",placeholder:"80"},{id:"b",label:"Increase",unit:"%",placeholder:"25"}],
+    },
+    decrease: {
+        question: 'Decrease <strong>X</strong> by <strong>Y%</strong>',
+        inputs: [{id:"a",label:"Value",unit:"",placeholder:"100"},{id:"b",label:"Decrease",unit:"%",placeholder:"20"}],
+    },
+};
+
+function setMode(m, btn) {
+    mode = m;
+    document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderInputs();
+    clearResult();
+}
+
+function renderInputs() {
+    const cfg = MODES[mode];
+    document.getElementById("question").innerHTML = cfg.question;
+    const line = document.getElementById("inputLine");
+    line.innerHTML = "";
+    cfg.inputs.forEach((inp, i) => {
+        if (i > 0) {
+            const op = document.createElement("span");
+            op.className = "op";
+            op.textContent = mode === "of" ? "of" : (mode === "isWhat" ? "of" : "→");
+            line.appendChild(op);
+        }
+        const field = document.createElement("span");
+        field.className = "field";
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = inp.id;
+        input.placeholder = inp.placeholder;
+        input.step = "any";
+        input.addEventListener("keydown", e => { if (e.key === "Enter") calculate(); });
+        field.appendChild(input);
+        if (inp.unit) {
+            const u = document.createElement("span");
+            u.className = "unit";
+            u.textContent = inp.unit;
+            field.appendChild(u);
+        }
+        line.appendChild(field);
+    });
+    line.querySelector("input")?.focus();
+}
+
+function fmt(n) {
+    if (!isFinite(n)) return "—";
+    return Number(n.toFixed(4)).toLocaleString("en-US", {maximumFractionDigits:4});
+}
+
+function calculate() {
+    const cfg = MODES[mode];
+    const a = parseFloat(document.getElementById("a").value);
+    const b = parseFloat(document.getElementById("b").value);
+    if (isNaN(a) || isNaN(b)) { alert("Please enter both numbers."); return; }
+
+    let result, formula, steps = [];
+
+    if (mode === "of") {
+        result = (a / 100) * b;
+        formula = a + "% of " + b + " = " + fmt(result);
+        steps.push("Convert " + a + "% to decimal: " + a + " ÷ 100 = " + (a/100));
+        steps.push("Multiply: " + (a/100) + " × " + b + " = <span class='ans'>" + fmt(result) + "</span>");
+    } else if (mode === "isWhat") {
+        result = (a / b) * 100;
+        formula = a + " is " + fmt(result) + "% of " + b;
+        steps.push("Divide: " + a + " ÷ " + b + " = " + (a/b));
+        steps.push("Multiply by 100: " + (a/b) + " × 100 = <span class='ans'>" + fmt(result) + "%</span>");
+    } else if (mode === "change") {
+        const diff = b - a;
+        result = (diff / a) * 100;
+        const dir = result >= 0 ? "increase" : "decrease";
+        formula = "From " + a + " to " + b + " = " + fmt(Math.abs(result)) + "% " + dir;
+        steps.push("Find difference: " + b + " − " + a + " = " + diff);
+        steps.push("Divide by original: " + diff + " ÷ " + a + " = " + (diff/a));
+        steps.push("Multiply by 100: <span class='ans'>" + fmt(Math.abs(result)) + "% " + dir + "</span>");
+    } else if (mode === "increase") {
+        const change = (a * b) / 100;
+        result = a + change;
+        formula = a + " increased by " + b + "% = " + fmt(result);
+        steps.push("Find " + b + "% of " + a + ": " + b + " ÷ 100 × " + a + " = " + fmt(change));
+        steps.push("Add to original: " + a + " + " + fmt(change) + " = <span class='ans'>" + fmt(result) + "</span>");
+    } else if (mode === "decrease") {
+        const change = (a * b) / 100;
+        result = a - change;
+        formula = a + " decreased by " + b + "% = " + fmt(result);
+        steps.push("Find " + b + "% of " + a + ": " + b + " ÷ 100 × " + a + " = " + fmt(change));
+        steps.push("Subtract from original: " + a + " − " + fmt(change) + " = <span class='ans'>" + fmt(result) + "</span>");
+    }
+
+    const val = document.getElementById("resultValue");
+    val.textContent = (mode === "isWhat" || mode === "change") ? fmt(Math.abs(result)) + (mode === "isWhat" ? "%" : "") : fmt(result);
+    document.getElementById("resultFormula").textContent = formula;
+    document.getElementById("resultBox").classList.add("show");
+
+    document.getElementById("stepsList").innerHTML = steps.map(s => "<li>" + s + "</li>").join("");
+    document.getElementById("stepsBox").classList.add("show");
+}
+
+function clearResult() {
+    document.getElementById("resultBox").classList.remove("show");
+    document.getElementById("stepsBox").classList.remove("show");
+    ["a","b"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
+}
+
+renderInputs();
+</script>
+</body>
+</html>
