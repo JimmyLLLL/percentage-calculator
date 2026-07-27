@@ -244,6 +244,9 @@ function calculate() {
 function clearResult() {
     document.getElementById("resultBox").classList.remove("show");
     document.getElementById("stepsBox").classList.remove("show");
+    document.getElementById("resultValue").textContent = "—";
+    document.getElementById("resultFormula").textContent = "";
+    document.getElementById("stepsList").innerHTML = "";
     ["a","b"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
 }
 
