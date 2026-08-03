@@ -40,5 +40,35 @@
 </main>
 <footer><p>© 2026 Percentage Calculator · <a href="/">Home</a></p></footer>
 <script src="js/counter.js" defer></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"% Percentage Calculator":"% 百分比计算器","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","About Percentage Calculator":"关于百分比计算器","Our free percentage calculator solves any percentage problem instantly — with step-by-step explanations. Whether you're calculating discounts, tips, taxes, grades, or investment returns, our tool gives you accurate answers in seconds.":"我们的免费百分比计算器可即时解决任何百分比问题 — 并提供逐步解释。无论你是计算折扣、小费、税费、成绩还是投资回报，我们的工具都能在几秒内给出准确答案。","Features":"功能特点","What is X% of Y?":"X% 的 Y 是多少？","X is what percent of Y?":"X 是 Y 的百分之几？","Percentage change (increase or decrease)":"百分比变化（增加或减少）","Percentage increase calculator":"百分比增长计算器","Percentage decrease calculator":"百分比减少计算器","Step-by-step solutions for every calculation":"每次计算提供逐步解答","Handles decimals and negative numbers":"支持小数和负数","100% free, no signup, no download":"100%免费，无需注册，无需下载","Percentage Formulas":"百分比公式","A percentage expresses a number as a fraction of 100. The key formulas:":"百分比将一个数表示为100的分数形式。关键公式：","Percent of":"求百分比","= (percent ÷ 100) × whole;":"= （百分比 ÷ 100）× 总数；","Percent rate":"百分率","= (part ÷ whole) × 100;":"= （部分 ÷ 总数）× 100；","Percent change":"百分比变化","= ((new − old) ÷ old) × 100.":"= （（新值 − 旧值）÷ 旧值）× 100。","Calculate Percentages →":"计算百分比 →","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 Percentage Calculator ·":"© 2026 百分比计算器 ·","Home":"首页"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
